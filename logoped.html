@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .word{
+        background: red;
+            height: 100px;
+            width: 800px ;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+            font-weight: bold;
+        }
+        .answer{
+             background: #adadad;
+           height: 100px;
+            width: 800px ;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+
+</head>
+<body>
+<center>
+    <h1 id="time">15</h1>
+<div id="1" class="word"> </div>
+<input type="text" id="2" class="answer"></input>
+    <img onclick="start()" style="height: 70px; width: 70px" id="3" src="replay.png">
+    <h2 id="4">выйгрыш</h2>
+    <h2 id="5">проигрыш</h2>
+    <script>
+        win=0
+        lose=0
+        words=['бюллетень', 'легитимность', 'цецецница','водоворотоподобно', 'лесопромышленность', 'словотетрагидропиранилциклопентилтетрагидропиридопиридиновые']
+        timer=0
+        time=15
+        numberwords=0
+        function start() {
+            time = 15
+            win = 0
+            lose = 0
+            document.getElementById("2").focus()
+            numberwords = 0
+            document.getElementById("time").innerHTML = time
+             clearInterval(timer)
+            document.getElementById("1").innerHTML = words[ numberwords]
+            timer = setInterval(function () {
+                time = time -1
+
+
+                document.getElementById("time").innerHTML = time
+                if (time == 0) {
+                    clearInterval(timer)
+                    lose = lose +1
+                    document.getElementById("5").innerHTML = 'проигрыш '+lose
+                    document.getElementById("2").value = ''
+
+                }
+                if ( document.getElementById("1").innerHTML == document.getElementById("2").value){
+                        numberwords = numberwords +1
+                     document.getElementById("1").innerHTML = words[ numberwords]
+                    document.getElementById("2").value = ''
+                    win = win +1
+                    document.getElementById("4").innerHTML = 'выйгрыш '+win
+                    time = 15
+                    document.getElementById("time").innerHTML = time
+                }
+            }, 1000)
+        }
+    </script>
+</center>
+</body>
+</html>
