@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .ff{
+            margin-top: 100px;
+            height: 200px ;
+            width:  200px;
+        }
+    </style>
+
+</head>
+<body>
+<center>
+<img class="ff" onclick="dice()" id="1" src="depositphotos_18905449-stock-illustration-dice1.png">
+</center>
+<script>
+        t = 0
+    function dice() {
+        t = Math.floor(Math.random() * 6) + 1;
+        console.log($('#1')[0])
+        if (t === 1){
+            document.getElementById('1').src='depositphotos_18905449-stock-illustration-dice1.png'
+        }
+        if(t===2){
+           document.getElementById('1').src='depositphotos_18905449-stock-illustration-dice2.png'
+        }
+        if(t===3){
+           document.getElementById('1').src='depositphotos_18905449-stock-illustration-dice3.png'
+        }
+        if(t===4){
+           document.getElementById('1').src='depositphotos_18905449-stock-illustration-dice4.png'
+        }
+        if(t===5){
+           document.getElementById('1').src='depositphotos_18905449-stock-illustration-dice5.png'
+        }
+        if(t===6){
+           document.getElementById('1').src='depositphotos_18905449-stock-illustration-dice6.png'
+        }
+    }
+</script>
+</body>
+</html>

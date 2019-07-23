@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    </style>
+</head>
+<body>
+<center>
+<img src="Красная_стрелка_вниз.png"><br>
+<img  onclick="u()" id="1" src="baraban.png"><br>
+</center>
+<script>
+    r = false
+    deg = 0
+    setInterval(function () {
+        if (r === true) {
+            deg += 10
+            document.getElementById('1').style.transform = 'rotate(' + deg + 'deg)';
+        }
+    }, 100)
+    function u() {
+            r = true
+    }
+</script>
+</body>
+</html>

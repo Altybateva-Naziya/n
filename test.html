@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+      xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .kartinka{
+            position: fixed;
+            top: 600px;
+            left: calc(50vw - 256px);
+            display: none;
+        }
+    </style>
+</head>
+<body bgcolor="#7fffd4">
+<center>
+    <img id="5" class="kartinka" src="giphy.gif">
+<h1> Тест по русскому языку</h1>
+<h2>
+    В каком слове ударение определено верно?
+</h2>
+    <form id="form1">
+<input value="докУмент" type="radio" name="answer1">докУмент</input>
+<input value="диспАнсер" type="radio" name="answer1">диспАнсер</input>
+<input value="фенОмен" type="radio" name="answer1">фенОмен</input>
+<input value="облЕгчить" type="radio" name="answer1">облЕгчить</input>
+    </form>
+<h2>
+   Укажите неправильно образованную форму слова
+</h2>
+    <form id="form2">
+<input value="обожгет" type="radio" name="answer2">обожгет</input>
+<input value="потрудитесь" type="radio" name="answer2">потрудитесь</input>
+<input value="восьмьюдесятью" type="radio" name="answer2">восьмьюдесятью</input>
+<input value="более красив" type="radio" name="answer2">более красив</input>
+    </form>
+<h2>
+  Значение какого слова определено неверно?
+</h2>
+    <form id="form5">
+<input value="дотошный – любознательный, во все вникающий" type="radio" name="answer3">дотошный – любознательный, во все вникающий</input>
+<input value="реванш – плата за поражение в войне или в игре" type="radio" name="answer3">реванш – плата за поражение в войне или в игре</input>
+<input value="дилетант – профессионально занимающийся наукой или искусством" type="radio" name="answer3">дилетант – профессионально занимающийся наукой или искусством</input>
+<input value="деградировать – постепенно ухудшаясь, прийти к вырождению" type="radio" name="answer3">деградировать – постепенно ухудшаясь, прийти к вырождению</input>
+    </form>
+<h2>
+   Выберите грамматически правильное продолжение предложения
+</h2>
+    <form id="form3">
+<input value="мне было сделано замечание" type="radio" name="answer4">мне было сделано замечание</input>
+<input value="вы рискуете своим здоровьем" type="radio" name="answer4">вы рискуете своим здоровьем</input>
+<input value="возникает угроза жизни окружающих" type="radio" name="answer4">возникает угроза жизни окружающих</input>
+<input value="оведение человека заслуживает порицания" type="radio" name="answer4">оведение человека заслуживает порицания</input>
+    </form>
+<h2>
+   Укажите предложение с грамматической ошибкой
+</h2>
+    <form id="form4">
+<input value="На улице шел снег вперемешку с дождем" type="radio" name="answer5">На улице шел снег вперемешку с дождем</input>
+<input value="В поле стояла одинокая береза" type="radio" name="answer5">В поле стояла одинокая береза</input>
+<input value="Вчерашний снег, мы которому так обрадовались, сегодня растаял" type="radio" name="answer5">Вчерашний снег, мы которому так обрадовались, сегодня растаял</input>
+<input value="Рабочие пришли поздно, были грубы и ничего толком не сделали" type="radio" name="answer5">Рабочие пришли поздно, были грубы и ничего толком не сделали</input>
+    </form>
+        <br>
+<button style="height: 50px; width: 100px; font-weight: bold; margin: 10px" onclick="check()" >Проверить</button>
+</center>
+<script>
+    function check() {
+        answers1 = document.getElementById('form1').answer1.value==='фенОмен';
+        console.log(answers1)
+         answers2 = document.getElementById('form2').answer2.value==='обожгет';
+        console.log(answers2)
+         answers3 = document.getElementById('form5').answer3.value==='дилетант – профессионально занимающийся наукой или искусством';
+        console.log(answers3)
+         answers4 = document.getElementById('form3').answer4.value==='вы рискуете своим здоровьем';
+        console.log(answers4)
+        answers5 = document.getElementById('form4').answer5.value==='На улице шел снег вперемешку с дождем';
+        console.log(answers5)
+        if(answers1 == true&&answers2 == true&&answers3 == true&&answers4 == true&&answers5 == true){
+             document.getElementById("5").style.display = "block"
+        } else {
+            alert('you lose')
+        }
+    }
+</script>
+</body>
+</html>
