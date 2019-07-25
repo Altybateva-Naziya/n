@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            margin: 0px;
+        }
+        .qu{
+            background-color: #24ccc4;
+            color: whitesmoke;
+            font-size: 65px;
+            text-align: center;
+            height: 80px;
+        }
+        .chu{
+            height: 80px;
+            width: 80px;
+            position: fixed;
+           right: 20px;
+            bottom: 20px;
+            display: block;
+        }
+        @media only screen and (min-width: 650px) {
+            .lu{
+                position: fixed;
+                height: 650px;
+                width: 650px;
+                background-color: rgba(36, 208, 200, 0.73);
+                top: calc(50% - 325px);
+                left: calc(50% - 325px);
+                 display: none;
+            }
+            .tu{
+                height: 50px;
+                width: 100px;
+                background-color: yellow;
+                font-size: 40px;
+                bottom: 5px;
+            }
+            .iu{
+                height: 50px;
+                width: 130px;
+                background-color: red;
+                font-size: 40px;
+                bottom: 5px;
+            }
+            .ru{
+                background-color:  rgba(36, 208, 200, 0.73);
+                width: 645px;
+                height: 585px;
+                font-size: 20px;
+                color: white;
+            }
+        }
+
+        @media only screen and (max-width: 650px) {
+            .lu{
+                position: fixed;
+                height: calc(100vh - 80px);
+                width: 100%;
+                background-color: rgba(36, 208, 200, 0.73);
+                 display: none;
+            }
+            .tu{
+                height: 50px;
+                width: 100px;
+                background-color: yellow;
+                font-size: 40px;
+                bottom: 5px;
+            }
+            .iu{
+                height: 50px;
+                width: 130px;
+                background-color: red;
+                font-size: 40px;
+                bottom: 5px;
+            }
+            .ru{
+                background-color:  rgba(36, 208, 200, 0.73);
+                width: 100%;
+                height: calc(100vh - 145px);
+                font-size: 20px;
+                color: white;
+            }
+
+        }
+
+    </style>
+</head>
+<body>
+<div class="qu"> list</div>
+
+<div id="1" class="lu">
+    <textarea id="2" class="ru" rows="4" cols="50">
+    </textarea>
+    <br>
+    <center>
+        <button onclick="note()" class="tu">save</button>
+   <button onclick="dele()" class="iu">cancle</button>
+    </center>
+</div>
+
+    <img id="3" onclick="show()" class="chu" src="Безымянный.png">
+<script>
+    function show() {
+        document.getElementById("1").style.display = "block"
+        document.getElementById("3").style.display = "none"
+    }
+    function dele() {
+        document.getElementById("1").style.display = "none"
+        document.getElementById("2").value = ''
+         document.getElementById("3").style.display = "block"
+    }
+    function note() {
+
+    }
+</script>
+</body>
+</html>
