@@ -40,6 +40,14 @@
                 font-size: 40px;
                 bottom: 5px;
             }
+            .wu{
+                height: 50px;
+                width: 130px;
+                background-color: black;
+                font-size: 40px;
+                bottom: 5px;
+                color: white;
+            }
             .iu{
                 height: 50px;
                 width: 130px;
@@ -53,6 +61,18 @@
                 height: 585px;
                 font-size: 20px;
                 color: white;
+            }
+            .pu{
+                background-color:  rgba(36, 208, 200, 0.73);
+                width: 250px;
+                height: 200px;
+                margin: 30px;
+                border-radius: 20px;
+                font-size: 25px;
+                color: white;
+                padding: 5px;
+                overflow: hidden;
+                display: inline-block;
             }
         }
 
@@ -85,6 +105,19 @@
                 font-size: 20px;
                 color: white;
             }
+            .pu{
+                background-color:  rgba(36, 208, 200, 0.73);
+                width:130px;
+                height: 100px;
+                margin: 10px;
+                border-radius: 20px;
+                font-size: 15px;
+
+                color: white;
+                padding: 5px;
+                overflow: hidden;
+                display: inline-block;
+            }
 
         }
 
@@ -94,17 +127,42 @@
 <div class="qu"> list</div>
 
 <div id="1" class="lu">
-    <textarea id="2" class="ru" rows="4" cols="50">
-    </textarea>
+    <textarea id="2" class="ru" rows="4" cols="50"></textarea>
     <br>
     <center>
         <button onclick="note()" class="tu">save</button>
    <button onclick="dele()" class="iu">cancle</button>
     </center>
 </div>
+<div id="11" class="lu">
+    <textarea id="22" class="ru" rows="4" cols="50"></textarea>
+    <br>
+    <center>
+        <button id="7" onclick="not()" class="tu">save</button>
+   <button onclick="del()" class="iu">cancle</button>
+        <button id="6" onclick="ce()" class="wu">delete</button>
+    </center>
+</div>
+<center id="4">
 
+</center>
     <img id="3" onclick="show()" class="chu" src="Безымянный.png">
 <script>
+    list = []
+    function rander() {
+        document.getElementById("4").innerHTML = ''
+        list.map(function (t, id) {
+            element = document.createElement('div')
+            element.className = 'pu'
+            element.innerHTML = t
+            element.onclick = function () {
+                s(id)
+            }
+            document.getElementById("4").appendChild(element)
+        })
+
+
+    }
     function show() {
         document.getElementById("1").style.display = "block"
         document.getElementById("3").style.display = "none"
@@ -115,6 +173,40 @@
          document.getElementById("3").style.display = "block"
     }
     function note() {
+        if (document.getElementById("2").value !== '')
+            list.push( document.getElementById("2").value )
+        console.log(list)
+        dele()
+        rander()
+
+    }
+    function ce(id) {
+        del()
+        list.splice(id,1)
+        rander()
+    }
+    function s(id) {
+        document.getElementById("11").style.display = "block"
+        document.getElementById("3").style.display = "none"
+        document.getElementById("22").value = list[id]
+        document.getElementById("6").onclick = function () {
+                ce(id)
+            }
+        document.getElementById("7").onclick = function () {
+                not(id)
+            }
+    }
+     function del() {
+        document.getElementById("11").style.display = "none"
+        document.getElementById("22").value = ''
+         document.getElementById("3").style.display = "block"
+    }
+     function not(id) {
+        if (document.getElementById("22").value !== '')
+            list[id] = document.getElementById('22').value
+        console.log(list)
+         del()
+        rander()
 
     }
 </script>
