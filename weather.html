@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>weather</title>
+<style>
+    .di{
+        font-size: 60px;
+        font-weight: bold;
+        font-family: "Rage Italic";
+        padding: 10px;
+    }
+</style>
+</head>
+<>
+<h1 style="font-size: 50px; font-weight: bold; margin: 20px; color: #343434">Bishkek</h1>
+<h2 style="font-size: 30px; font-weight: bold; margin-left: 30px; margin-top: 10px; color: #343434">Wednesday</h2><br>
+<div style="display: flex; flex-direction: row">
+<img style="height: 250px; width: 250px; margin-left: 20px; " id="1" src="Без названия.png">
+<h1 style="font-size: 100px; font-weight: bold; " id="2"></h1>
+</div>
+<table>
+  <tr>
+    <th class="di" >Monday</th>
+    <th class="di">Tuesday</th>
+    <th class="di">Wednesday</th>
+      <th class="di">Thursday</th>
+    <th class="di">Friday</th>
+    <th class="di">Saturday</th>
+      <th class="di">Sunday</th>
+  </tr>
+</table>
+<script>
+    fetch('https://openweathermap.org/data/2.5/weather?q=Bishkek&appid=b6907d289e10d714a6e88b30761fae22')
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(myJson) {
+      document.getElementById('2').innerHTML = myJson.main.temp_max + '°C'
+        document.getElementById('1').src = 'http://openweathermap.org/img/wn/' + myJson.weather[0].icon + '@2x.png'
+    console.log(myJson);
+  });
+
+</script>
+</body>
+</html>
