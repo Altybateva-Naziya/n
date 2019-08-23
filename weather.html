@@ -1,35 +1,103 @@
 <!DOCTYPE html>
+<html>
 <head>
     <meta charset="UTF-8">
     <title>weather</title>
+
 <style>
     .di{
-        font-size: 60px;
+        font-size: 55px;
         font-weight: bold;
         font-family: "Rage Italic";
-        padding: 10px;
+        padding: 23px;
     }
+  .mi{
+    font-size: 40px;
+        font-weight: bold;
+        font-family: "Rage Italic";
+        padding: 23px;
+  }
 </style>
 </head>
-<>
-<h1 style="font-size: 50px; font-weight: bold; margin: 20px; color: #343434">Bishkek</h1>
-<h2 style="font-size: 30px; font-weight: bold; margin-left: 30px; margin-top: 10px; color: #343434">Wednesday</h2><br>
+<body>
+<h1 style="font-size: 70px; font-weight: bold; margin-top: 20px; color: #343434; margin-left: 20px">Bishkek</h1>
+<h2 id="3" style="font-size: 60px; font-weight: bold; margin-top: 10px;  margin-left: 20px; color: #343434"></h2><br>
 <div style="display: flex; flex-direction: row">
-<img style="height: 250px; width: 250px; margin-left: 20px; " id="1" src="Без названия.png">
-<h1 style="font-size: 100px; font-weight: bold; " id="2"></h1>
+<img style="height: 250px; width: 250px " id="1" src="Без%20названия.png">
+<h1 style="font-size: 100px; font-weight: bold" id="2"></h1>
 </div>
 <table>
   <tr>
-    <th class="di" >Monday</th>
-    <th class="di">Tuesday</th>
-    <th class="di">Wednesday</th>
-      <th class="di">Thursday</th>
-    <th class="di">Friday</th>
-    <th class="di">Saturday</th>
-      <th class="di">Sunday</th>
+    <th id="4" class="di" ></th>
+
+
+    <th id="5" class="di"></th>
+    <th id="6" class="di"></th>
+      <th id="7" class="di"></th>
+    <th id="8" class="di"></th>
+    <th id="9" class="di"></th>
+      <th id="10" class="di"></th>
+  </tr>
+  <tr>
+    <th class="di" >
+      <img style="height: 250px; width: 250px; margin-left: 20px; " id="41" src="Без%20названия.png">
+    </th>
+    <th class="di" >
+      <img style="height: 250px; width: 250px; margin-left: 20px; " id="42" src="Без%20названия.png">
+    </th>
+    <th class="di" >
+      <img style="height: 250px; width: 250px; margin-left: 20px; " id="43" src="Без%20названия.png">
+    </th>
+     <th class="di" >
+      <img style="height: 250px; width: 250px; margin-left: 20px; " id="44" src="Без%20названия.png">
+    </th>
+    <th class="di" >
+      <img style="height: 250px; width: 250px; margin-left: 20px; " id="45" src="Без%20названия.png">
+    </th>
+    <th class="di" >
+      <img style="height: 250px; width: 250px; margin-left: 20px; " id="46" src="Без%20названия.png">
+    </th>
+     <th class="di" >
+      <img style="height: 250px; width: 250px; margin-left: 20px; " id="47" src="Без%20названия.png">
+    </th>
+  </tr>
+  <tr>
+    <th class="mi" >
+      <div id="67"></div><div id="99"></div>
+    </th>
+    <th class="mi" >
+      <div id="66"></div><div id="98"></div>
+    </th>
+    <th class="mi" >
+      <div id="65"></div><div id="97"></div>
+    </th>
+     <th class="mi" >
+       <div id="64"></div><div id="96"></div>
+    </th>
+    <th class="mi" >
+      <div id="63"></div><div id="95"></div>
+    </th>
+    <th class="mi" >
+      <div id="62"></div><div id="94"></div>
+    </th>
+     <th class="mi" >
+    <div id="61"></div><div id="93"></div>
+    </th>
   </tr>
 </table>
+<script src="moment-with-locales.js">
+
+</script>
 <script>
+console.log(moment().format('dddd'));
+      document.getElementById('4').innerHTML = moment().format('dddd');
+      document.getElementById('5').innerHTML = (moment().add(1, 'days').format('dddd'));
+       document.getElementById('6').innerHTML = (moment().add(2, 'days').format('dddd'));
+        document.getElementById('7').innerHTML = (moment().add(3, 'days').format('dddd'));
+         document.getElementById('8').innerHTML = (moment().add(4, 'days').format('dddd'));
+          document.getElementById('9').innerHTML = (moment().add(5, 'days').format('dddd'));
+           document.getElementById('10').innerHTML = (moment().add(6, 'days').format('dddd'));
+            document.getElementById('3').innerHTML = moment().format('dddd');
     fetch('https://openweathermap.org/data/2.5/weather?q=Bishkek&appid=b6907d289e10d714a6e88b30761fae22')
   .then(function(response) {
     return response.json();
@@ -40,6 +108,34 @@
     console.log(myJson);
   });
 
+  fetch('https://openweathermap.org/data/2.5/forecast/daily?id=1528675&appid=b6907d289e10d714a6e88b30761fae22&cnt=7')
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(myJson) {
+      document.getElementById('41').src = 'http://openweathermap.org/img/wn/' + myJson.list[0].weather[0].icon + '@2x.png'
+      document.getElementById('67').innerHTML = myJson.list[0].temp.day + '°C'
+      document.getElementById('99').innerHTML = myJson.list[0].temp.night + '°C'
+       document.getElementById('42').src = 'http://openweathermap.org/img/wn/' + myJson.list[1].weather[0].icon + '@2x.png'
+      document.getElementById('66').innerHTML = myJson.list[1].temp.day + '°C'
+      document.getElementById('98').innerHTML = myJson.list[1].temp.night + '°C'
+       document.getElementById('43').src = 'http://openweathermap.org/img/wn/' + myJson.list[2].weather[0].icon + '@2x.png'
+      document.getElementById('65').innerHTML = myJson.list[2].temp.day + '°C'
+      document.getElementById('97').innerHTML = myJson.list[2].temp.night + '°C'
+       document.getElementById('44').src = 'http://openweathermap.org/img/wn/' + myJson.list[3].weather[0].icon + '@2x.png'
+      document.getElementById('64').innerHTML = myJson.list[3].temp.day + '°C'
+      document.getElementById('96').innerHTML = myJson.list[3].temp.night + '°C'
+       document.getElementById('45').src = 'http://openweathermap.org/img/wn/' + myJson.list[4].weather[0].icon + '@2x.png'
+      document.getElementById('63').innerHTML = myJson.list[4].temp.day + '°C'
+      document.getElementById('95').innerHTML = myJson.list[4].temp.night + '°C'
+       document.getElementById('46').src = 'http://openweathermap.org/img/wn/' + myJson.list[5].weather[0].icon + '@2x.png'
+      document.getElementById('62').innerHTML = myJson.list[5].temp.day + '°C'
+      document.getElementById('94').innerHTML = myJson.list[5].temp.night + '°C'
+       document.getElementById('47').src = 'http://openweathermap.org/img/wn/' + myJson.list[6].weather[0].icon + '@2x.png'
+      document.getElementById('61').innerHTML = myJson.list[6].temp.day + '°C'
+      document.getElementById('93').innerHTML = myJson.list[6].temp.night + '°C'
+    console.log(myJson);
+  });
 </script>
 </body>
 </html>
